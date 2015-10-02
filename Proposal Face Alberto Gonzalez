@@ -1,0 +1,64 @@
+//proposal face using diferent coding
+//here we have all the variables 
+int eyeSize = 40;
+int xm;
+int xy;
+int mc;
+int grow = 1;
+int mouth = 100;
+float jitter;
+float angle;
+int eyeBrowLX;
+int eyeBrowLY;
+void setup(){
+  size (600,600);
+
+}
+
+void draw (){// starts the draw here
+
+//mouse direction
+noStroke();
+background(290,100,10,200);
+xm = mouseX;
+xy = mouseY;
+
+// face
+fill(255, 255, 0);
+ellipse(xm, xy+ 208, 350, 350);
+
+// eyes
+fill(random(255), 46, 41);
+ellipse(xm -70, xy +151, eyeSize, eyeSize);
+ellipse(xm +90, xy + 142, eyeSize, eyeSize);
+eyeSize++;
+
+//increase eyes until 250, than stops, until a click appears
+if (eyeSize == 250){
+  eyeSize--;
+   }
+  
+  //eyebrows
+fill (46,46,41);
+rect(xm + 70 , xy +100, eyeBrowLX+35, eyeBrowLY+10);//eyebrows
+rect(xm - 90 , xy +100, 35, 10);//eyebrows
+ if (eyeBrowLX == 35) {
+     rotate (eyeBrowLX);
+ }
+
+
+// mouth
+fill(252, 65, 65);
+ellipse(xm+50, xy +240, mouth + 20, mouth + 36);
+
+
+}
+void mouseClicked() {//with this click will return the eyes to the original place
+  if (eyeSize == 0) {
+    eyeSize = 255;
+  } else {
+    eyeSize = 40;
+  
+  
+  }
+}
